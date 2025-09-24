@@ -1,0 +1,367 @@
+/* ===== Reset & Base ===== */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+}
+
+body {
+    margin: 0;
+    color: #fff;
+    font-family: "Carter One", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: #000 url('img_0732.jpg') no-repeat fixed center/cover;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0 0 24px;
+    -webkit-text-fill-color: #c9c9c9;
+    -webkit-text-stroke-width: 1px;
+}
+
+h2 {
+    font-size: clamp(36px, 3.2vw, 56px);
+    text-align: center;
+}
+
+/* ===== Layout helpers ===== */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+/* transparent sections */
+.card {
+    background: #5e1d23;
+    border-radius: 36px;
+    padding: 60px 24px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px, rgba(0, 0, 0, 0.22) 0 15px 12px;
+}
+
+/* Responsive grids */
+.grid {
+    display: grid;
+    gap: 30px;
+}
+
+.cols-2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.cols-3 {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.cols-4 {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* ===== Header / Nav ===== */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    height: 150px;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    backdrop-filter: blur(6px);
+}
+
+nav img.logo {
+    width: 210px;
+}
+
+.menu {
+    position: fixed;
+    inset: 120px 0 0 0;
+    background: #8b939e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding-top: 24px;
+    transform: translateY(-100%);
+    transition: transform .3s ease;
+}
+
+.menu li a {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+}
+
+.menu li a:hover {
+    color: #b61d1d;
+}
+
+#check {
+    display: none;
+}
+
+#check:checked~.menu {
+    transform: translateY(0);
+}
+
+.hamburger-btn {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media (min-width: 900px) {
+    .nav {
+        height: 170px;
+        background: transparent;
+    }
+
+    nav img.logo {
+        width: 230px;
+    }
+
+    .hamburger-btn {
+        display: none;
+    }
+
+    .menu {
+        position: static;
+        transform: none;
+        background: none;
+        flex-direction: row;
+        gap: 28px;
+        padding: 0;
+    }
+
+    .menu li a {
+        font-size: 24px;
+    }
+}
+
+/* ===== Flickity (Slideshow) ===== */
+.carousel-cell {
+    width: 100%;
+    height: 800px;
+    margin-right: 10px;
+    border-radius: 25px;
+    background-size: cover;
+    background-position: center;
+}
+
+@media (max-width: 1024px) {
+    .carousel-cell {
+        width: 92%;
+        height: 420px;
+    }
+}
+
+@media (max-width: 640px) {
+    .carousel-cell {
+        width: 96%;
+        height: 300px;
+    }
+}
+
+/* ===== Mission ===== */
+.mission {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: stretch;
+    width: 100%;
+}
+
+.mission-img {
+    flex: 1 1 360px;
+    min-height: 360px;
+    border-radius: 24px;
+    background: url('True Rose Entertainment (1).png') center/contain no-repeat #111;
+}
+
+.mission-text {
+    flex: 1 1 480px;
+    background: #000;
+    color: #fff;
+    padding: 24px;
+    border-radius: 24px;
+}
+
+/* ===== Artists ===== */
+.artist-card img {
+    width: 100%;
+    height: 940px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 5px solid #000;
+}
+
+.artist-name {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+/* ===== Music (mixtapes + player) ===== */
+.mixtapes .music-card img {
+    width: 100%;
+    height: 1020px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(1, 85, 26, 0.6);
+}
+
+/* ===== Media ===== */
+.media-wrap {
+    aspect-ratio: 16/9;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 15px;
+}
+
+/* ===== Events (Dates) ===== */
+.events-grid .event-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.events-grid .event-card p {
+    text-align: center;
+    margin-top: 8px;
+}
+
+/* ===== Shop ===== */
+.shop-card {
+    background: #000;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.shop-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.buy-btn {
+    align-self: center;
+    padding: 12px 20px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #8e1d1d, #b61d1d);
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .35);
+}
+
+/* ===== Contact ===== */
+.contact-form {
+    display: grid;
+    gap: 12px;
+    max-width: 640px;
+    margin: 0 auto 24px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #222;
+    padding: 12px 14px;
+    background: #111;
+    color: #fff;
+}
+
+.socials {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.socials a {
+    color: #fff;
+    opacity: .85;
+}
+
+.socials a:hover {
+    opacity: 1;
+}
+
+/* Section styling with red background panels */
+.section {
+    padding: 80px 0;
+}
+
+.section .container {
+    background: #5e1d23;
+    /* deep red background */
+    border-radius: 36px;
+    padding: 60px 24px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px, rgba(0, 0, 0, 0.22) 0 15px 12px;
+}
+
+/* Global sizing adjustments */
+html {
+    font-size: 40px;
+}
+
+/* bigger text everywhere */
+.container {
+    max-width: 1900px;
+}
+
+/* wider content area */
+
+/* Logo and menu */
+nav img.logo {
+    padding-top: 200px;
+    width: 400px;
+}
+
+/* bigger logo */
+.menu li a {
+    font-size: 100px;
+}
+
+/* bigger nav links */
+
+/* Headings */
+h2 {
+    font-size: clamp(40px, 4vw, 64px);
+}
+
+/* scale with screen size */
+
